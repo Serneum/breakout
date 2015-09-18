@@ -14,7 +14,7 @@ window.onload = function() {
     gameContext = gameLayer.getContext('2d');
 
     ball = new Ball(gameLayer);
-    playerPaddle = new Paddle(gameLayer, gameLayer.height - 30);
+    playerPaddle = new Paddle(gameLayer, gameLayer.height - 50);
     drawGame();
 
     (function render(){
@@ -52,7 +52,7 @@ function update() {
     if (ball.y <= 0 && ball.velY < 0) {
         ball.bounceVelY();
     }
-    else if (((ball.x + ball.radius) >= gameLayer.width && ball.velX > 0) || (ball.x <= 0 && ball.velX < 0)) {
+    else if (((ball.x + ball.radius) >= gameLayer.width && ball.velX > 0) || (ball.x - ball.radius <= 0 && ball.velX < 0)) {
         ball.bounceVelX();
     }
 

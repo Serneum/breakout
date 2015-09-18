@@ -33,7 +33,7 @@ Ball.prototype = {
         this.velY = -this.velY;
     },
     checkCollision: function(paddle) {
-        if ((this.x + this.radius) >= paddle.x && this.x < (paddle.x + paddle.width) && Math.abs(this.y - paddle.y) < paddle.height) {
+        if ((this.x + this.radius) >= paddle.x && (this.x - this.radius) <= (paddle.x + paddle.width) && (this.y + this.radius) >= paddle.y && (this.y - this.radius) <= paddle.y) {
             var deltaX = this.x - (paddle.x + (paddle.width / 2));
             var normalizedDelta = deltaX / (paddle.width / 2);
             // Max bounce angle is 75 degrees
@@ -41,7 +41,7 @@ Ball.prototype = {
             // Determine new velocities. Make sure the Y velocity sign matches the old sign
             this.velX = this.speed * Math.cos(angle);
             this.velY = this.speed * Math.sin(angle) * (this.velY < 0 ? -1 : 1);
-            this.bounceVelX();
+            this.bounceVelY();
         }
     }
 };
