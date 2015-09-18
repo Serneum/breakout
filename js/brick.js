@@ -9,6 +9,9 @@ function Brick(context, x, y, color) {
 };
 
 Brick.prototype = {
+    reset: function() {
+        this.hidden = false;
+    },
     checkCollision: function(ball) {
         if (!this.hidden && (ball.x + ball.radius) >= this.x && (ball.x - ball.radius) <= (this.x + this.width) && (ball.y + ball.radius) >= this.y && (ball.y - ball.radius) <= this.y) {
             var deltaX = ball.x - (this.x + (this.width / 2));
