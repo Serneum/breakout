@@ -5,6 +5,7 @@ var gameContext;
 
 var ball;
 var playerPaddle;
+var level;
 
 window.onload = function() {
     backgroundLayer = document.getElementById('background');
@@ -15,6 +16,7 @@ window.onload = function() {
 
     ball = new Ball(gameLayer);
     playerPaddle = new Paddle(gameLayer, gameLayer.height - 50);
+    level = new Level(gameLayer, "1");
     drawGame();
 
     (function render(){
@@ -76,6 +78,7 @@ function drawBackground() {
 
 function drawGame() {
     gameContext.clearRect(0, 0, gameLayer.width, gameLayer.height);
+    level.draw();
     ball.draw();
     playerPaddle.draw();
 }
