@@ -25,7 +25,7 @@ Level.prototype = {
                     var row = line.split('');
                     for (var j = 0; j < row.length; j++) {
                         var sym = row[j];
-                        if (sym) {
+                        if (sym !== " ") {
                             var color = 'white';
                             if (sym === "G") {
                                 color = 'green';
