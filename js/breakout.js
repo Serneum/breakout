@@ -16,7 +16,7 @@ window.onload = function() {
 
     ball = new Ball(gameLayer);
     playerPaddle = new Paddle(gameLayer, gameLayer.height - 50);
-    level = new Level(gameLayer, "1");
+    level = new Level(gameContext, "1");
     drawGame();
 
     (function render(){
