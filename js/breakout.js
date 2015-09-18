@@ -71,14 +71,11 @@ function update() {
 
 function drawBackground() {
     var backgroundContext = backgroundLayer.getContext('2d');
-    backgroundContext.fillStyle = 'black';
-    backgroundContext.fillRect(0, 0, backgroundLayer.width, backgroundLayer.height);
+    drawRect(backgroundContext, 0, 0, backgroundLayer.width, backgroundLayer.height, 'black');
 }
 
 function drawGame() {
     gameContext.clearRect(0, 0, gameLayer.width, gameLayer.height);
-    gameContext.beginPath();
     ball.draw();
     playerPaddle.draw();
-    gameContext.closePath();
 }

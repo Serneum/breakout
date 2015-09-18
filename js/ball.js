@@ -22,9 +22,7 @@ Ball.prototype = {
         this.y += this.velY;
     },
     draw: function() {
-        this.canvasContext.fillStyle = 'white';
-        this.canvasContext.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-        this.canvasContext.fill();
+        drawCircle(this.canvasContext, this.x, this.y, this.radius, 'white');
     },
     bounceVelX: function() {
         this.velX = -this.velX;

@@ -1,6 +1,5 @@
-function Brick(canvas, x, y, color) {
-    this.canvas = canvas;
-    this.canvasContext = this.canvas.getContext('2d');
+function Brick(context, x, y, color) {
+    this.context = context;
     this.width = 100;
     this.height = 10;
     this.x = x;
@@ -25,8 +24,7 @@ Brick.prototype = {
     },
     draw: function() {
         if (!this.hidden) {
-            this.canvasContext.fillStyle = 'blue';
-            this.canvasContext.fillRect(this.x, this.y, this.width, this.height);
+            drawRect(this.context, this.x, this.y, this.width, this.height, this.color);
         }
     }
 };
