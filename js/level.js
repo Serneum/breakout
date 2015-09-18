@@ -28,7 +28,7 @@ Level.prototype = {
                         var brick;
                         var color = 'white';
                         if (sym === "G") {
-                            color = 'blue';
+                            color = 'green';
                         }
                         else if (sym === "B") {
                             color = 'blue';
