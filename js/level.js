@@ -25,23 +25,21 @@ Level.prototype = {
                     var row = line.split('');
                     for (var j = 0; j < row.length; j++) {
                         var sym = row[j];
-                        var brick;
-                        var color = 'white';
-                        if (sym === "G") {
-                            color = 'green';
-                        }
-                        else if (sym === "B") {
-                            color = 'blue';
-                        }
-                        else if (sym === "R") {
-                            color = 'red';
-                        }
+                        if (sym) {
+                            var color = 'white';
+                            if (sym === "G") {
+                                color = 'green';
+                            }
+                            else if (sym === "B") {
+                                color = 'blue';
+                            }
+                            else if (sym === "R") {
+                                color = 'red';
+                            }
 
-                        brick = new Brick(_this.context, j * 100, i * 10, color);
-                        if (sym === " ") {
-                            brick.hidden = true;
+                            var brick = new Brick(_this.context, j * 100, i * 10, color);
+                            brickRow.push(brick);
                         }
-                        brickRow.push(brick);
                     }
                     _this.brickGrid.push(brickRow);
                 }
