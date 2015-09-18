@@ -46,7 +46,14 @@ function calculateMousePos(event) {
 function update() {
     gameLayer.addEventListener('mousemove', function(evt) {
         var mousePos = calculateMousePos(evt);
-        playerPaddle.move(mousePos.x);
+        var paddlePos = mousePos.x - playerPaddle.width / 2;
+        if (paddlePos < 0) {
+            paddlePos = 0;
+        }
+        else if (paddlePos + playerPaddle.width > gameLayer.width) {
+                paddlePos = gameLayer.width - playerPaddle.width;
+        }
+        playerPaddle.move(paddlePos);
     });
     ball.move();
     if (ball.y <= 0 && ball.velY < 0) {
